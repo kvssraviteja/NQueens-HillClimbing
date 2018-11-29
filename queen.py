@@ -23,13 +23,10 @@ class Board:
     def __init__(self, n):
         self.n = n
         self.queens = np.empty([self.n], dtype=Queen)
-        self.gen_random_board()
 
     def gen_random_board(self):
         for i in range(self.n):
             self.queens[i] = Queen(random.randint(0, self.n-1), random.randint(0, self.n-1))
-
-        # return self.queens
 
     def get_heuristic(self):
         tempHeuristic = 0

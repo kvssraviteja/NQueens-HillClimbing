@@ -34,8 +34,8 @@ class HillClimbing:
                 if tempBoard.queens[i].get_row() < self.n-1:
                     tempBoard.queens[i].step()
 
-        self.stepsClimbed+=1
-        self.stepsClimbedRestart+=1
+        self.stepsClimbed += 1
+        self.stepsClimbedRestart += 1
 
         if bestHeuristic == curHeuristic:
             # print('random start')
@@ -48,9 +48,7 @@ class HillClimbing:
         return bestHeuristic
 
     def gen_solution(self):
-        # newBoard = Board(self.n)
-        # newBoard.gen_random_board()
-        # self.board.gen_random_board()
+        self.board.gen_random_board()
         self.heuristic = self.board.get_heuristic()
 
         while self.heuristic > 0:
@@ -59,11 +57,10 @@ class HillClimbing:
 
         if self.heuristic == 0:
             print('Solution found')
-            # self.heuristic = newHeuristic
 
     def print_board(self):
         tboard = [[0 for x in range(self.n)] for x in range(self.n)]
-        # print(tboard)
+
         for q in self.board.queens:
             tboard[q.get_row()][q.get_column()] = 1
 
